@@ -26,9 +26,10 @@ ufw status
 echo "Download and install aptos cli"
 wget https://github.com/aptos-labs/aptos-core/releases/download/aptos-cli-v0.1.1/aptos-cli-0.1.1-Ubuntu-x86_64.zip
 sudo apt install unzip -y
-unzip aptos*
+unzip aptos-cli-0.1.1-Ubuntu-x86_64.zip
 chomd +x aptos
 mv aptos /usr/bin
+rm -rf aptos-cli-0.1.1-Ubuntu-x86_64.zip
 
 echo "Check if the binary works"
 aptos help
@@ -48,8 +49,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 docker ps
 
 echo "Aptos Docker Installation and Configuration"
-echo "export WORKSPACE=testnet" >> .bashrc
-source .bashrc
+export WORKSPACE=testnet
 mkdir ~/$WORKSPACE
 cd ~/$WORKSPACE
 wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/docker-compose.yaml
@@ -72,5 +72,7 @@ chain_id: 23" > layout.yaml
 wget https://github.com/aptos-labs/aptos-core/releases/download/aptos-framework-v0.1.0/framework.zip
 unzip framework.zip
 aptos genesis generate-genesis --local-repository-dir ~/$WORKSPACE --output-dir ~/$WORKSPACE
-docker-compose up -d
+docker compose up -d
 cat ${nodename}".yaml"
+
+set +x
