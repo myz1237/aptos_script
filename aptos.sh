@@ -12,7 +12,7 @@ fi
 
 cd ~
 sudo apt update
-sud0 apt upgrade -y
+sudo apt upgrade -y
 
 echo "Set up firewall"
 ufw default deny
