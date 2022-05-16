@@ -2,7 +2,13 @@
 
 set -x
 
-nodename=$1
+full_node=$1
+nodename=$2
+
+if [ ! -n "$full_node" ]; then 
+echo "Please set your full node ip:port" 
+exit 2
+fi 
 
 if [ ! -n "$nodename" ]; then 
 echo "Node Name is set as default value: myaptos" 
@@ -58,7 +64,6 @@ wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose
 aptos genesis generate-keys --output-dir ~/$WORKSPACE
 validator_port=“:6180”
 validator_ip=$(curl ifconfig.me)${validator_port}
-full_node="65.108.73.124:6182"
 aptos genesis set-validator-configuration \
     --keys-dir ~/$WORKSPACE --local-repository-dir ~/$WORKSPACE \
     --username ${nodename} \
