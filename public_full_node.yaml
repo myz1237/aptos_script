@@ -21,8 +21,8 @@ full_node_networks:
       discovery_method: "onchain"
       identity:
         type: "from_config"
-        key: "你的私钥"
-        peer_id: "你的peer id"
+        key: "Your Private Key"
+        peer_id: "Your Peer ID"
       # The network must have a listen address to specify protocols. This runs it locally to
       # prevent remote, incoming connections.
       listen_address: "/ip4/0.0.0.0/tcp/6182"

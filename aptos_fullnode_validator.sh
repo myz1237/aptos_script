@@ -68,7 +68,7 @@ wget https://github.com/aptos-labs/aptos-core/releases/download/aptos-framework-
 unzip framework.zip
 aptos genesis generate-genesis --local-repository-dir ~/$WORKSPACE --output-dir ~/$WORKSPACE
 
-sudo docker run --rm aptoslab/tools:devnet sh -c "echo '开始生成私钥...' && aptos-operational-tool generate-key --encoding hex --key-type x25519 --key-file /root/private-key.txt && echo '\n\n开始生成公钥和 Peer ID...' && aptos-operational-tool extract-peer-from-file --encoding hex --key-file /root/private-key.txt --output-file /root/peer-info.yaml && echo '\n\n你的私钥' && cat /root/private-key.txt && echo '\n\n您的公钥和 Peer ID 信息如下：' && cat /root/peer-info.yaml"
+sudo docker run --rm aptoslab/tools:devnet sh -c "aptos-operational-tool generate-key --encoding hex --key-type x25519 --key-file /root/private-key.txt && aptos-operational-tool extract-peer-from-file --encoding hex --key-file /root/private-key.txt --output-file /root/peer-info.yaml && echo '\n\nYour Private Key' && cat /root/private-key.txt && echo '\n\nYour Pubkey and Peer ID' && cat /root/peer-info.yaml" >> full_node_private_key_peer_id.txt
 
 echo "Keep those information"
 echo "fill in the public_full_node.yaml with your private key and peer id"

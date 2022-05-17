@@ -55,7 +55,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 docker ps
 
 echo "Aptos Docker Installation and Configuration"
-export WORKSPACE=testnet
+export WORKSPACE=aptos_validator
 mkdir ~/$WORKSPACE
 cd ~/$WORKSPACE
 wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/docker-compose.yaml
