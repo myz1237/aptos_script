@@ -23,7 +23,7 @@ sudo apt upgrade -y
 echo "Set up firewall"
 ufw default deny
 ufw allow ssh
-ufw allow 6108/tcp
+ufw allow 6180/tcp
 ufw allow 9101/tcp
 ufw enable
 ufw status
